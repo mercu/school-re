@@ -1,0 +1,23 @@
+create table TBL_SUBJECT_202210 (
+	subcode char(4) not null primary key,
+	subname varchar2(30),
+	proname varchar2(20)
+);
+
+insert into TBL_SUBJECT_202210 values (
+'A001', '자바', '정명석');
+insert into TBL_SUBJECT_202210 values (
+'A002', 'C언어', '김미숙');
+insert into TBL_SUBJECT_202210 values (
+'A003', '데이터베이스', '서길동');
+insert into TBL_SUBJECT_202210 values (
+'A004', '웹프로그래밍', '이건원');
+insert into TBL_SUBJECT_202210 values (
+'A005', '영어', '박태민');
+
+
+SELECT st.stuid, st.sname, sc.subcode, su.proname,
+	sc.midscore, sc.finalscore, sc.attend, sc.report, sc.etc
+FROM TBL_STUDENT_202210 st, TBL_SCORE_202210 sc, TBL_SUBJECT_202210 su 
+WHERE st.stuid = sc.sid AND sc.subcode = su.subcode
+ORDER BY st.sname;
