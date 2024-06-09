@@ -19,3 +19,15 @@ insert into TBL_STUDENT_202210 values (
 '20220015', '김성진', '모던음악과', '0205013555555', '010-5555-5555', 'kimsj@naver.com');
 insert into TBL_STUDENT_202210 values (
 '20220016', '조민지', '건축과', '0206014666666', '010-6666-6666', 'ㅓjmg@naver.com');
+
+
+merge into TBL_STUDENT_202210 
+using dual
+	on (stuid = '20220016')
+	when matched then
+		update set
+			dept_name = '패션디자인과',
+			email = 'jmg@gmail.com'
+	when not matched then
+		insert values ('20220016', '조민지', '건축과', '0206014666666', '010-6666-6666', 'ㅓjmg@naver.com')
+;
