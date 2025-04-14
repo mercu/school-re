@@ -8,8 +8,8 @@
 <body>
 <%
 
-// String sql = "SELECT 1 FROM DUAL";
-String sql = "SELECT * FROM TBL_SCORE_202210";
+String sql = "SELECT 1 FROM DUAL";
+// String sql = "SELECT * FROM TBL_SCORE_202210";
 ResultSet rs = con.prepareStatement(sql).executeQuery();
 while(rs.next()) {
 	%>
